@@ -1,0 +1,32 @@
+body {
+    background-image: url("rock-paper.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+}
+
+main {
+    margin: 0;
+    width: 1700px;
+    height: 850px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn-start {
+    padding: 2em;
+    margin: 0 auto;
+    border-radius: 2em;
+    border: none;
+    width: 20%;
+    background-color: #bada55;
+    color: darkslategrey;
+    display: block;
+}
+
+.btn-start:focus,
+.btn-start:hover {
+    background-color: #93bd09;
+}
