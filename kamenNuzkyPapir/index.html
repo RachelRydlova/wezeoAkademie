@@ -2,26 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamen, nuzky, papir </title>
-    <link href="style.css" rel="stylesheet">
-
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kamen ✊🏽 Nuzky ✌🏽 Papir ✋🏽 </title>
+    <link rel="stylesheet" href="style.css" />
     <script src="jquery.js"></script>
     <script src="script.js"></script>
-
-
 </head>
 
 <body>
+    <div class="container">
+        <h1>Kamen nuzky papir</h1>
+        <h2>Jak hrat:</h2>
+        <ul>
+            <li>Zmacknete tlacitko "Start"</li>
+            <li>Napiste kamen, nuzky nebo papir</li>
+            <li>Nasledne bude vypsano zda vyhrava pocitac nebo vy</li>
+        </ul>
 
-    <main>
-        <a href="#" id="play" class="btn-start">
-            Začít hrát
-        </a>
-    </main>
+        <h2>Pravidla:</h3>
+            <ul>
+                <li>kamen tupi nuzky</li>
+                <li>papir bali kamen</li>
+                <li>nuzky strihaji papir</li>
+            </ul>
 
+            <button onclick="startGame()">Start</button>
+            <div class="scoreBoard">
+                <div class="playerScore">
+                    <h2>Tvoje Skóre</h2>
+                    <h2 id="playerScoreVal">0</h2>
+                </div>
+                <div class="botScore">
+                    <h2>Skóre Počítače</h2>
+                    <h2 id="botScoreVal">0</h2>
+                </div>
+            </div>
+    </div>
 </body>
 
 </html>
