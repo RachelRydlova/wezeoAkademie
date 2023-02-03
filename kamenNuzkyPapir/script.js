@@ -5,91 +5,81 @@ const objectCounter = {
 }
 
 function startGame() {
-    let selectedObject = "";
-    let numberGen = Math.floor(Math.random() * 3);
-    let enemySelection = "";
+    let playerVal = "";
+    let randomNumber = Math.floor(Math.random() * 3);
+    let compVal = "";
     let playerScoreVal = parseInt(
         document.getElementById("playerScoreVal").innerHTML
     );
-    let botScoreValue = parseInt(
+    let botScoreVal = parseInt(
         document.getElementById("botScoreVal").innerHTML
     );
     let result = "";
 
     alert("Hra začala!");
 
-    console.log(numberGen);
-    selectedObject = prompt(
+    console.log(randomNumber);
+    playerInput = prompt(
         "Napište K pro kámen, N pro nůžky nebo P pro papír."
     );
 
-    if (numberGen == 0) {
-        enemySelection = "kámen"
-        objectCounter.kamen++
+    playerVal = playerInput.toUpperCase();
 
-        if (selectedObject === "N" || selectedObject === "n") {
-            objectCounter.nuzky++
-            result = "Prohrál jsi!"
-            alert(`Počítač zvolil ${enemySelection}, ${result}`)
-            botScoreVal++
-        } else if (selectedObject === "P" || selectedObject === "p") {
-            objectCounter.papir++
-            result = "Vyhrál jsi!"
-            alert(`Počítač zvolil ${enemySelection}, ${result}`)
-            playerScoreVal++
-        } else if (selectedObject === "K" || selectedObject === "k") {
-            objectCounter.kamen++
-            result = "Remíza!"
-            alert(`Počítač zvolil ${enemySelection}, ${result}`)
-        } else {
-            alert("Nenapsali jste správný výraz.")
-        }
+    if (playerVal == "P") {
+        objectCounter.papir++;
+    } else if (playerVal == "N") {
+        objectCounter.nuzky++;
+    } else if (playerVal == "K") {
+        objectCounter.kamen++;
     }
-    if (numberGen == 1) {
-        enemySelection = "papír"
-        objectCounter.papir++
 
-        if (selectedObject == "N" || selectedObject === "n") {
-            objectCounter.nuzky++
-            result = "Vyhrál jsi!"
-            alert(`Počítač zvolil ${enemySelection}, ${result}`)
+    if (randomNumber == 0) {
+        compVal = "K";
+        if (playerVal == "P") {
             playerScoreVal++
-        } else if (selectedObject == "P" || selectedObject === "p") {
-            objectCounter.papir++
-            result = "Remíza!"
-            alert(`Počítač zvolil ${enemySelection}, ${result}`)
-        } else if (selectedObject == "K" || selectedObject === "k") {
-            objectCounter.kamen++
-            result = "Prohrál jsi!"
-            alert(`Počítač zvolil ${enemySelection}, ${result}`)
-            botScoreVal++
-        } else {
-            alert("Nenapsali jste správný výraz.")
-        }
+            result = "Vyhrál jsi!";
+        };
+        if (playerVal == "N") {
+            botScoreVal++;
+            result = "Prohrál jsi!";
+        };
+        if (playerVal == "K") {
+            result = "Remíza!";
+        };
     }
-    if (numberGen == 2) {
-        enemySelection = "nůžky"
-        objectCounter.nuzky++
+    if (randomNumber == 1) {
+        compVal = "P";
+        if (playerVal == "N") {
+            playerScoreVal++
+            result = "Vyhrál jsi!";
+        };
+        if (playerVal == "K") {
+            botScoreVal++;
+            result = "Prohrál jsi!";
+        };
+        if (playerVal == "P") {
+            result = "Remíza!";
+        };
+    }
+    if (randomNumber == 2) {
+        compVal = "N";
+        if (playerVal == "K") {
+            playerScoreVal++
+            result = "Vyhrál jsi!";
+        };
+        if (playerVal == "P") {
+            botScoreVal++;
+            result = "Prohrál jsi!";
+        };
+        if (playerVal == "N") {
+            result = "Remíza!";
+        };
+    }
 
-        if (selectedObject == "N" || selectedObject === "n") {
-            objectCounter.nuzky++
-            result = "Remíza!"
-            alert(`Počítač zvolil ${enemySelection}, ${result}`)
-        } else if (selectedObject == "P" || selectedObject === "p") {
-            objectCounter.papir++
-            result = "Prohrál jsi!"
-            alert(`Počítač zvolil ${enemySelection}, ${result}`)
-            botScoreVal++
-        } else if (selectedObject == "K" || selectedObject === "k") {
-            objectCounter.kamen++
-            result = "Vyhrál jsi!"
-            alert(`Počítač zvolil ${enemySelection}, ${result}`)
-            playerScoreVal++
-        } else {
-            alert("Napište správně jednu z možností K, P, N")
-        }
-    }
-    let prevLap = [enemySelection, selectedObject, result]
+
+    alert(`Počítač zvolil ${compVal}, ${result}`);
+
+    let prevLap = [compVal, playerVal, result]
 
     console.log(prevLap)
     console.log(objectCounter)
@@ -97,5 +87,5 @@ function startGame() {
     document.getElementById("playerScoreVal").innerHTML = playerScoreVal
     document.getElementById("botScoreVal").innerHTML = botScoreVal
 
-    console.log(selectedObject)
+    console.log(playerVal)
 }
